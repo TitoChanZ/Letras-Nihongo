@@ -1,0 +1,92 @@
+/*
+  *Estilos para la ventana emergente de tu Extensión
+*/
+:root{
+  --colorBackgroundWhile:#ffeeff;
+  --colorBackgroundDark:#110011;
+}
+*{
+  font-family:Arial, Helvetica, sans-serif;
+  color:var(--colorBackgroundDark);
+}
+
+
+body{
+ width: 200px;
+ height:max-content;
+ background: #ffffff;
+ 
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--colorBackgroundDark);
+    color: white;
+  }
+  *{
+    color:var(--colorBackgroundWhile);
+  }
+}
+
+.H1_welcome{
+ color: rgb(177, 0, 153);
+ text-align: center;
+}
+img{
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 25%;
+}
+
+.containerOptions>label{
+  font-size: large;
+
+}
+.containerOptions>input{
+  font-size: large;
+  accent-color: #f0f;
+
+}
+
+/* ////////////////////////// */
+#switch{ 
+  position: relative;
+  margin: auto;
+  /* left: 10px; */
+  
+  top: 0;
+  bottom: 0;
+  height: 30px;
+  width: 60px;
+  transition: 0.5s background;
+  background: #AAAAAA;
+  border: 2px solid #ccc;
+  border-radius: 100px;
+  box-shadow: -2px -2px 2px #fff ,2px 2px 2px #aaa;
+  
+} 
+#icoSwitch{ 
+  position: absolute;
+  margin: auto;
+  left: 1px;
+  
+  top: 0;
+  bottom: 0;
+  height: 27px;
+  width: 27px;
+  background: linear-gradient(110deg, #aaa, #fff);
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  box-shadow: 
+  inset -2px -2px 2px #aaa,
+  inset 2px 2px 2px #fff;
+  transition: 0.5s left;
+} 
+#switch.switch{ 
+  background: #f0f;
+}
+#icoSwitch.icoSwitch{
+  
+  left: 30px;
+}
