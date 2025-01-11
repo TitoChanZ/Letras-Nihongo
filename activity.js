@@ -360,9 +360,23 @@ function findTextContainingElements(rootElement) {
 
   function searchElement(element) {
     // Si el elemento es un nodo de texto
+    // console.log(element)
+    // console.log(element.tagName)
+    // console.log(Node.TEXT_NODE)
     if (element.nodeType === Node.TEXT_NODE && element.textContent.trim()) {
-      elementsWithText.push(element.parentNode); // Añade el elemento contenedor al array.
+    // console.log(element)
+    let tn = element.parentNode.tagName
+    // console.log(tn)
+
+      if(tn != 'SCRIPT' && tn != 'STYLE' ){
+        // console.log('El elemento  es es un Scrip o Style')
+        elementsWithText.push(element.parentNode);
+      }else{
+        // console.log('El elemento es un Scrip o Style')
+      }
+      // elementsWithText.push(element.parentNode); // Añade el elemento contenedor al array.
     } else if (element.nodeType === Node.ELEMENT_NODE) {
+      
       element.childNodes.forEach(child => searchElement(child)); // Recorrer nodos hijos.
     }
   }
@@ -375,6 +389,7 @@ function findTextContainingElements(rootElement) {
 function replaceTextInElements(elements, letrasMap) {
   elements.forEach(element => {
     element.childNodes.forEach(child => {
+      // console.log(element.tagName)
       if (child.nodeType === Node.TEXT_NODE) {
 
 
@@ -419,7 +434,7 @@ var web=document.addEventListener('scroll',()=>{
 })
 
 function initTextChanger(){
-  console.log('cambiando Texto')
+  // console.log('Cambiando Texto')
   chrome.storage.local.get(['estado']).then((result) => {
     if(result.estado != undefined){
       estadoDeLetrasNihongo=result.estado
